@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="flex-column">
+    <div class="d-flex justify-content-between align-items-center mt-5">
+      <h1> Designation </h1>
+      <%= button_to "Add New Designation", new_designation_path, method: :get ,class:"btn-warning border-0 rounded shadow p-3 m-3" %>
+    </div>
+    <!-- Designation Table -->
+    <div>
+      <table class="table table-info table-striped">
+        <thead class="table-secondary">
+          <td class="text-center"> Name </td>
+          <td colspan=3 class="text-center"> Action </td>
+        </thead>
+        <% @designations.each do |designation| %>
+          <tr>
+            <td class="text-center"> <%= designation.designation_name %> </td>
+            <td class="text-center"><%= button_to "Edit",edit_designation_path(designation),method: :get, class:"btn-primary border-0 rounded-pill shadow px-3 py-2" %></td>
+            <td class="text-center"><%= button_to "Delete",designation_path(designation),method: :delete, data: { turbo: false}, class:"btn-danger border-0 rounded-pill shadow px-3 py-2" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
