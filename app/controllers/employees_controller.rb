@@ -11,9 +11,6 @@ class EmployeesController < ApplicationController
 
   def create
     @employee = Employee.create(employee_params)
-    
-    binding.pry
-    
     if @employee.valid?
       flash[:errors] = 'Employees Added Successfully'
       redirect_to employees_path
@@ -46,6 +43,9 @@ class EmployeesController < ApplicationController
       redirect_to destroy_employee_path
     end
   end
+
+  #  Method for displaying all queries
+  def queries;  end
 
   private
 

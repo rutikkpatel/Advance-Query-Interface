@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="flex-column">
+    <h1 class="text-center"> <u> All Queries </u> </h1>
+    <div class="border p-3 mt-4" style="background: #b6b6b626;">
+      <h3 class="mt-2 mb-3 text-center"> Employees having age > 20 and  40 </h3>
+      <div>
+        <table class="table table-warning">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Age </td>
+            <td class="text-center"> Gender </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Joining Date </td>
+            <td class="text-center"> Birthdate </td>
+            <td class="text-center"> Salary </td>
+            <td class="text-center"> Availability </td>
+          </thead>
+          <% Employee.where("age > 20 and age < 40").each do |employee| %>
+            <tr>
+              <td class="text-center"> <%=  employee.id %> </td>
+              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+              <td class="text-center"> <%=  employee.age %> </td>
+              <td class="text-center"> <%=  employee.gender %> </td>
+              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+              <td class="text-center"> <%=  employee.joining_date %> </td>
+              <td class="text-center"> <%=  employee.birth_date %> </td>
+              <td class="text-center"> <%=  employee.salary %> </td>
+              <td class="text-center"> <%=  employee.availability %> </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

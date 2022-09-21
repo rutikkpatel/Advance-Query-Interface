@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   resources :designations, except: %i[show]
-  resources :employees
+  resources :employees do
+    get 'queries', on: :collection
+  end
 end
