@@ -1,0 +1,55 @@
+<div class="set-center flex-column form h-auto mt-3">
+  <div class="card shadow" style="width: 36rem;">
+    <div class="card-header">
+      <h2 class="text-center mt-2">Employee Form</h2>
+    </div>
+    <div class="card-body">
+      <!-- Form Started Here -->
+      <%= form_with model: @employee do |f| %>
+        <br>
+        <%= f.label :first_name, "First Name :" %>
+        <%= f.text_field :first_name, placeholder: "Enter First Name Here", class:"form-control" %>
+        <br>
+        <%= f.label :last_name, "Last Name :" %>
+        <%= f.text_field :last_name, placeholder: "Enter Last Name Here", class:"form-control" %>
+        <br>
+        <%= f.label :email, "Email :" %>
+        <%= f.text_field :email, placeholder: "Enter Email Here", class:"form-control" %>
+        <br>
+        <%= f.label :contact_number, "Contact Number :" %>
+        <%= f.text_field :contact_number, placeholder: "Enter Contact Number Here", class:"form-control" %>
+        <br>
+        <%= f.label :age, "Age :" %>
+        <%= f.number_field :age, placeholder: "Enter Age Here", class:"form-control" %>
+        <br>
+        <%= f.label :gender, "Gender :" %>
+        <%= f.collection_radio_buttons :gender, Employee.genders, :first, :first %>
+        <br>
+        <%= f.label :designation_id, "Designation :", class:"mt-4"  %>
+        <%= f.select(:designation_id, Designation.all.collect { |d| [d.designation_name, d.id]},{include_blank: "Select Designation"},{ class:"form-select", required: true }) %>
+        <br>
+        <div class="row">
+          <div class="col-sm">
+            <%= f.label :joining_date %>
+            <%= f.date_field :joining_date, as: :date, class:"form-control" %>
+          </div>
+          <div class="col-sm">
+            <%= f.label :birth_date, "Birthdate :" %> <br>
+            <%= f.date_select :birth_date, {as: :date, :start_year=>1980}, {class: "bg-light form-control-sm"} %>
+          </div>
+        </div>
+        <%= f.label :salary, "Salary :", class:"mt-4" %>
+        <%= f.number_field :salary, placeholder: "Enter Salary Here", class:"form-control" %>
+        <br>
+        <%= f.label :availability, "availability :" %>
+        <% Employee.availabilities.keys.each do |availability| %>
+          <%= f.radio_button :availability, availability %>
+          <%= f.label availability.to_sym %>
+        <% end %>
+        <div class="d-flex justify-content-center">
+          <%= f.submit "Save Employee", class:"btn-secondary border-0 shadow py-2 px-5" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
