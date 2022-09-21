@@ -72,3 +72,4 @@ group :test do
 end
 
 gem 'pry'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
