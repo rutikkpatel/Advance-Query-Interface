@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :employees do
     get 'queries', on: :collection
   end
+
+  root 'employees#index'
 end

@@ -20,7 +20,24 @@
           <td class="text-center"> Availability </td>
           <td colspan=3 class="text-center"> Action </td>
         </thead>
+        <%# --------------------- 
+        -> Employees.all.each => Fetch the entire table in a single pass 
+        -> This may consume too much memory if the table is big.
+        --------------------- %>
         <% @employees.each do |employee| %>
+
+        <%# ---------------------
+        -> Employees.find_each =>  Retrieves records in batches 
+        -> This retrieves employees in batches of 1000.
+        --------------------- %>
+        <%# @employees.find_each do |employee| %>
+
+        <%# --------------------- 
+        -> Employees.find_each(batch_size: 2000) => Specify the number of records to be retrieved in each batch.
+        -> To retrieve records in batches of 2000:
+        --------------------- %>
+        <%# REFERENCE : https://guides.rubyonrails.org/active_record_querying.html#retrieving-multiple-objects-in-batches %>
+        <%# @employees.find_each(batch_size: 2000) do |employee| %>
           <tr>
             <td class="text-center"> <%=  employee.id %> </td>
             <td class="text-center"> <%= link_to employee.first_name + " " + employee.last_name, employee_path(employee) %> </td>
