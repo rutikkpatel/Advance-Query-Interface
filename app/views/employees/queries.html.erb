@@ -131,5 +131,101 @@
         </table>
       </div>
     </div>
+    <%# ---------- Employee whose age > 40 and salary > 50000 -------------------- %>
+    <div class="border p-3 mt-4" style="background: #b6b6b626;">
+      <h3 class="mt-2 mb-3 text-center"> Employee whose age > 40 AND salary > 50000  </h3>
+      <div>
+        <table class="table table-primary">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Age </td>
+            <td class="text-center"> Gender </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Joining Date </td>
+            <td class="text-center"> Birthdate </td>
+            <td class="text-center"> Salary </td>
+            <td class="text-center"> Availability </td>
+          </thead>
+          <% Employee.where("age > ? AND salary > ?", 40, 50000).each do |employee| %>
+            <tr>
+              <td class="text-center"> <%=  employee.id %> </td>
+              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+              <td class="text-center"> <%=  employee.age %> </td>
+              <td class="text-center"> <%=  employee.gender %> </td>
+              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+              <td class="text-center"> <%=  employee.joining_date %> </td>
+              <td class="text-center"> <%=  employee.birth_date %> </td>
+              <td class="text-center"> <%=  employee.salary %> </td>
+              <td class="text-center"> <%=  employee.availability %> </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <%# ---------- Employee whose age is [46, 51, 55] -------------------- %>
+    <div class="border p-3 mt-4" style="background: #b6b6b626;">
+      <h3 class="mt-2 mb-3 text-center"> Employee whose age is [46, 51, 55]  </h3>
+      <div>
+        <table class="table table-danger">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Age </td>
+            <td class="text-center"> Gender </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Joining Date </td>
+            <td class="text-center"> Birthdate </td>
+            <td class="text-center"> Salary </td>
+            <td class="text-center"> Availability </td>
+          </thead>
+          <% Employee.where(age: [46, 51, 55]).each do |employee| %>
+            <tr>
+              <td class="text-center"> <%=  employee.id %> </td>
+              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+              <td class="text-center"> <%=  employee.age %> </td>
+              <td class="text-center"> <%=  employee.gender %> </td>
+              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+              <td class="text-center"> <%=  employee.joining_date %> </td>
+              <td class="text-center"> <%=  employee.birth_date %> </td>
+              <td class="text-center"> <%=  employee.salary %> </td>
+              <td class="text-center"> <%=  employee.availability %> </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <%# ---------- First 5 Employee in birthdate descending order -------------------- %>
+    <div class="border p-3 mt-4" style="background: #b6b6b626;">
+      <h3 class="mt-2 mb-3 text-center"> First 5 Employee - Birthdate descending order  </h3>
+      <div>
+        <table class="table table-warning">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Age </td>
+            <td class="text-center"> Gender </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Joining Date </td>
+            <td class="text-center"> Birthdate </td>
+            <td class="text-center"> Salary </td>
+            <td class="text-center"> Availability </td>
+          </thead>
+          <% Employee.where('id < 6').order('birth_date desc').each do |employee| %>
+            <tr>
+              <td class="text-center"> <%=  employee.id %> </td>
+              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+              <td class="text-center"> <%=  employee.age %> </td>
+              <td class="text-center"> <%=  employee.gender %> </td>
+              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+              <td class="text-center"> <%=  employee.joining_date %> </td>
+              <td class="text-center"> <%=  employee.birth_date %> </td>
+              <td class="text-center"> <%=  employee.salary %> </td>
+              <td class="text-center"> <%=  employee.availability %> </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
