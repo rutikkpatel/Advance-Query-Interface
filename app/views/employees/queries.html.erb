@@ -263,4 +263,57 @@
         </div>
       </div>
     </div>
-  </div>
+    <%# ---------- Employee's Leave Count with Includes and Joins -------------------- %>
+    <div class="border p-3 mt-4" style="background: #b6b6b626;">
+      <h3 class="mt-2 mb-3 text-center"> Employee's Leave Count  </h3>
+      <div>
+        <table class="table table-danger">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Total Leaves </td>
+          </thead>
+          <% Employee.includes(:leave_plans).each do |employee| %>
+            <%# Employee.joins(:leave_plans).each do |employee| %>
+              <%# -------- includes => Showing all the data -------- %>
+              <%# -------- joins => Showing only common data -------- %>
+              <tr>
+                <td class="text-center"> <%=  employee.id %> </td>
+                <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                <td class="text-center"> <%=  employee.leave_plans.count %> </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <%# ---------- Employees who are on leave -------------------- %>
+      <div class="border p-3 mt-4" style="background: #b6b6b626;">
+        <h3 class="mt-2 mb-3 text-center"> Employees who are on leave  </h3>
+        <div>
+          <table class="table table-warning">
+            <thead class="table-dark">
+              <td class="text-center"> ID </td>
+              <td class="text-center"> Full Name </td>
+              <td class="text-center"> Designation </td>
+              <td class="text-center"> Leave From </td>
+              <td class="text-center"> Leave To </td>
+              <td class="text-center"> Leave Reason </td>
+            </thead>
+            <% Employee.includes(:leave_plans).each do |employee| %>
+              <% employee.leave_plans.each do |leave| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  leave.leave_from %> </td>
+                  <td class="text-center"> <%=  leave.leave_to %> </td>
+                  <td class="text-center"> <%=  leave.leave_reason%> </td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>

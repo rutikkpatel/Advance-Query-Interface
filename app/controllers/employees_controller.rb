@@ -2,7 +2,14 @@ class EmployeesController < ApplicationController
   before_action :set_employee, only: [:edit, :update, :show, :destory]
 
   def index
-    @employees = Employee.all
+    # @employees = Employee.all
+    @employees = Employee.includes(:designation)
+    # @employees = Employee.preload(:designation)
+    # @employees = Employee.eager_load(:designation)
+
+    # includes => we can use where clause in this ||| widely used |||
+    # preload => we can not use where clause with preload
+    # eager_load => it use LEFT OUTER JOIN
   end
 
   def new
