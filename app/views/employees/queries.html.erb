@@ -316,4 +316,57 @@
           </table>
         </div>
       </div>
+      <%# ---------- Employee with Salary Descending -------------------- %>
+      <div class="border p-3 mt-4" style="background: #b6b6b626;">
+        <h3 class="mt-2 mb-3 text-center"> Employee with Salary Descending  </h3>
+        <div>
+          <table class="table table-primary">
+            <thead class="table-dark">
+              <td class="text-center"> ID </td>
+              <td class="text-center"> Full Name </td>
+              <td class="text-center"> Age </td>
+              <td class="text-center"> Gender </td>
+              <td class="text-center"> Designation </td>
+              <td class="text-center"> Joining Date </td>
+              <td class="text-center"> Birthdate </td>
+              <td class="text-center"> Salary </td>
+              <td class="text-center"> Availability </td>
+            </thead>
+            <% @salaryDesc.each do |employee| %>
+              <tr>
+                <td class="text-center"> <%=  employee.id %> </td>
+                <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                <td class="text-center"> <%=  employee.age %> </td>
+                <td class="text-center"> <%=  employee.gender %> </td>
+                <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                <td class="text-center"> <%=  employee.joining_date %> </td>
+                <td class="text-center"> <%=  employee.birth_date %> </td>
+                <td class="text-center"> <%=  employee.salary %> </td>
+                <td class="text-center"> <%=  employee.availability %> </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <%# ---------- Employee with Second Highest Salary -------------------- %>
+      <div class="border p-3 mt-4" style="background: #b6b6b626;">
+        <h3 class="mt-2 mb-3 text-center"> Employee with Second Highest Salary  </h3>
+        <div>
+          <table class="table table-danger">
+            <thead class="table-dark">
+              <td class="text-center"> ID </td>
+              <td class="text-center"> Full Name </td>
+              <td class="text-center"> Designation </td>
+              <td class="text-center"> Salary </td>
+            </thead>
+            <% empSecondHighSalary = Employee.secondHighSalary %>
+            <tr>
+              <td class="text-center"> <%=  empSecondHighSalary.id %> </td>
+              <td class="text-center"> <%=  empSecondHighSalary.first_name + " " + empSecondHighSalary.last_name %> </td>
+              <td class="text-center"> <%=  empSecondHighSalary.designation.designation_name %> </td>
+              <td class="text-center"> <%=  empSecondHighSalary.salary %> </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
