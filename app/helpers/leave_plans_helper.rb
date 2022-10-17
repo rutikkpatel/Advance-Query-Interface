@@ -1,0 +1,2 @@
+module LeavePlansHelper
+end

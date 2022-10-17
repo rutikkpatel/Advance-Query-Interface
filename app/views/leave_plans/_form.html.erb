@@ -1,0 +1,45 @@
+<div class="set-center flex-column form h-auto mt-3">
+  <div class="card shadow" style="width: 36rem;">
+    <div class="card-header">
+      <h2 class="text-center mt-2">Leave Application</h2>
+    </div>
+    <!--Error Message-->
+    <% if flash[:errors] %>
+      <div class="error-message bg-danger text-light pt-3 px-2 rounded-3 m-1">
+        <p> Following Errors Prohibited Your Leave Application </p>
+        <% flash[:errors].each do |error| %>
+          <ul>
+            <li><%= error %></li>
+          </ul>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="card-body">
+      <!-- Form Started Here -->
+      <%= form_with model: @leave_plan do |f| %>
+        <%= f.label :employee_id, "Employee :", class:"mt-4"  %>
+        <%= f.select(:employee_id, Employee.all.collect { |d| [d.first_name + " " + d.last_name, d.id]},{include_blank: "Select Employee"},{ class:"form-select" }) %>
+        <br>
+        <div class="row">
+          <div class="col-sm">
+            <%= f.label :leave_from, "From :" %> <br>
+            <%= f.date_select :leave_from, {as: :date, :start_year=>1980}, {class: "bg-light form-control-sm"} %>
+          </div>
+          <div class="col-sm">
+            <%= f.label :leave_to, "To :" %> <br>
+            <%= f.date_select :leave_to, {as: :date, :start_year=>1980}, {class: "bg-light form-control-sm"} %>
+          </div>
+        </div>
+        <br>
+        <%= f.label :leave_type, "Leave Type :" %>
+        <%= f.select(:leave_type, LeavePlan.leave_types.keys.map {|key| [key.humanize, key]}, {},{class: "form-select"}) %>
+        <%= f.label :leave_reason, "Reason For Leave :", class:"mt-4" %>
+        <%= f.text_area :leave_reason, placeholder: "Enter Reason For Leave Here", class:"form-control" %>
+        <br>
+        <div class="d-flex justify-content-center">
+          <%= f.submit "Apply Leave", class:"btn-secondary border-0 shadow py-2 px-5" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

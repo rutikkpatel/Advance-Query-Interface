@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="flex-column">
+    <div class="d-flex justify-content-between align-items-center mt-5">
+      <h1> Leave Planner </h1>
+      <%= button_to "Apply for Leave", new_leave_plan_path, method: :get ,class:"btn-warning border-0 rounded shadow p-3 m-3" %>
+    </div>
+    <!-- Designation Table -->
+    <div>
+      <table class="table table-info table-striped">
+        <thead class="table-secondary">
+          <td class="text-center"> Name </td>
+          <td class="text-center"> Type </td>
+          <td class="text-center"> To </td>
+          <td class="text-center"> From </td>
+          <td class="text-center"> Reason </td>
+          <td colspan=2 class="text-center"> Action </td>
+        </thead>
+        <% @leave_plans.each do |leave_plan| %>
+          <tr>
+            <td class="text-center"> <%= leave_plan.employee.first_name + " " + leave_plan.employee.last_name %> </td>
+            <td class="text-center"> <%= leave_plan.leave_type.humanize %> </td>
+            <td class="text-center"> <%= leave_plan.leave_from %> </td>
+            <td class="text-center"> <%= leave_plan.leave_to %> </td>
+            <td class="text-center"> <%= leave_plan.leave_reason %> </td>
+            <td class="text-center"><%= button_to "Edit",edit_leave_plan_path(leave_plan),method: :get, class:"btn-primary border-0 rounded-pill shadow px-3 py-2" %></td>
+            <td class="text-center"><%= button_to "Delete",leave_plan_path(leave_plan),method: :delete, data: { turbo: false}, class:"btn-danger border-0 rounded-pill shadow px-3 py-2" %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-5">
+      <%= button_to "Back to Employees", employees_path, method: :get ,class:"btn-success border-0 rounded shadow p-2 m-2" %>
+    </div>
+  </div>
+</div>

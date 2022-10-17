@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     get 'queries', on: :collection
   end
 
+  resources :leave_plans
   root 'employees#index'
 end
