@@ -42,6 +42,7 @@ class EmployeesController < ApplicationController
   end
 
   def destroy
+    @employee = Employee.find(params[:id])
     if @employee.delete
       flash[:errors] = 'Employees Successfully Deleted'
       redirect_to root_path(@employee)

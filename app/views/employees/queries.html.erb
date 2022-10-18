@@ -5,368 +5,369 @@
       <%= button_to "Home", employees_path, method: :get ,class:"btn-success border-0 rounded shadow  px-3 py-2 " %>
     </div>
     <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Employees having age > 20 and  40 </h3>
-      <div>
-        <table class="table table-warning">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Joining Date </td>
-            <td class="text-center"> Birthdate </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> Availability </td>
-          </thead>
-          <% Employee.where("age > 20 and age < 40").each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.joining_date %> </td>
-              <td class="text-center"> <%=  employee.birth_date %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.availability %> </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-    <%# ---------- Female Engineers-------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Female Engineers </h3>
-      <div>
-        <table class="table table-primary">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Joining Date </td>
-            <td class="text-center"> Birthdate </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> Availability </td>
-          </thead>
-          <% Employee.where(gender: "female").each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.joining_date %> </td>
-              <td class="text-center"> <%=  employee.birth_date %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.availability %> </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-    <%# ---------- Male Software Engineers-------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Male Software Engineers </h3>
-      <div>
-        <table class="table table-danger">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Joining Date </td>
-            <td class="text-center"> Birthdate </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> Availability </td>
-          </thead>
-          <% Employee.male.where(designation_id: 1).each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.joining_date %> </td>
-              <td class="text-center"> <%=  employee.birth_date %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.availability %> </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-    <%# ---------- Part Time Available Employee -------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Part Time Available Employee  </h3>
-      <div>
-        <table class="table table-warning">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Joining Date </td>
-            <td class="text-center"> Birthdate </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> Availability </td>
-          </thead>
-          <% Employee.where(availability: "part_time").each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.joining_date %> </td>
-              <td class="text-center"> <%=  employee.birth_date %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.availability %> </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-    <%# ---------- Employee whose age > 40 and salary > 50000 -------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Employee whose age > 40 AND salary > 50000  </h3>
-      <div>
-        <table class="table table-primary">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Joining Date </td>
-            <td class="text-center"> Birthdate </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> Availability </td>
-          </thead>
-          <% Employee.where("age > ? AND salary > ?", 40, 50000).each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.joining_date %> </td>
-              <td class="text-center"> <%=  employee.birth_date %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.availability %> </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-    <%# ---------- Employee whose age is [46, 51, 55] -------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Employee whose age is [46, 51, 55]  </h3>
-      <div>
-        <table class="table table-danger">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Joining Date </td>
-            <td class="text-center"> Birthdate </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> Availability </td>
-          </thead>
-          <% Employee.where(age: [46, 51, 55]).each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.joining_date %> </td>
-              <td class="text-center"> <%=  employee.birth_date %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.availability %> </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-    <%# ---------- First 5 Employee in birthdate descending order -------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> First 5 Employee - Birthdate descending order  </h3>
-      <div>
-        <table class="table table-warning">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Joining Date </td>
-            <td class="text-center"> Birthdate </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> Availability </td>
-          </thead>
-          <% Employee.where('id < 6').order('birth_date desc').each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.joining_date %> </td>
-              <td class="text-center"> <%=  employee.birth_date %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.availability %> </td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
-    <%# ---------- Total of grouped items -------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Total of grouped items  </h3>
-      <div class="text-center">
-        Availability :  <%= Employee.group(:availability).count %> <br>
-        Gender :  <%= Employee.group(:gender).count %>
-      </div>
-    </div>
-    <%# ---------- Group and Having -------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Group and Having </h3>
-      <div>
-        <table class="table table-primary">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Age </td>
-            <td class="text-center"> Gender </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Salary </td>
-            <td class="text-center"> created_at </td>
-          </thead>
-          <% Employee.group(:age).having("salary < 50000").each do |employee| %>
-            <tr>
-              <td class="text-center"> <%=  employee.id %> </td>
-              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-              <td class="text-center"> <%=  employee.age %> </td>
-              <td class="text-center"> <%=  employee.gender %> </td>
-              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-              <td class="text-center"> <%=  employee.salary %> </td>
-              <td class="text-center"> <%=  employee.created_at %> </td>
-            <% end %>
-          </table>
-        </div>
-      </div>
-    </div>
-    <%# ---------- Employee's Leave Count with Includes and Joins -------------------- %>
-    <div class="border p-3 mt-4" style="background: #b6b6b626;">
-      <h3 class="mt-2 mb-3 text-center"> Employee's Leave Count  </h3>
-      <div>
-        <table class="table table-danger">
-          <thead class="table-dark">
-            <td class="text-center"> ID </td>
-            <td class="text-center"> Full Name </td>
-            <td class="text-center"> Designation </td>
-            <td class="text-center"> Total Leaves </td>
-          </thead>
-          <% Employee.includes(:leave_plans).each do |employee| %>
-            <%# Employee.joins(:leave_plans).each do |employee| %>
-              <%# -------- includes => Showing all the data -------- %>
-              <%# -------- joins => Showing only common data -------- %>
-              <tr>
-                <td class="text-center"> <%=  employee.id %> </td>
-                <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-                <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-                <td class="text-center"> <%=  employee.leave_plans.count %> </td>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
-      <%# ---------- Employees who are on leave -------------------- %>
-      <div class="border p-3 mt-4" style="background: #b6b6b626;">
-        <h3 class="mt-2 mb-3 text-center"> Employees who are on leave  </h3>
-        <div>
-          <table class="table table-warning">
-            <thead class="table-dark">
-              <td class="text-center"> ID </td>
-              <td class="text-center"> Full Name </td>
-              <td class="text-center"> Designation </td>
-              <td class="text-center"> Leave From </td>
-              <td class="text-center"> Leave To </td>
-              <td class="text-center"> Leave Reason </td>
-            </thead>
-            <% Employee.includes(:leave_plans).each do |employee| %>
-              <% employee.leave_plans.each do |leave| %>
+      <h3 class="mt-2 mb-3 text-center"> Employees having age > 20 and  < 40 </h3>
+          <div>
+            <table class="table table-warning">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% Employee.where("age > 20 and age < 40").each do |employee| %>
                 <tr>
                   <td class="text-center"> <%=  employee.id %> </td>
                   <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
                   <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-                  <td class="text-center"> <%=  leave.leave_from %> </td>
-                  <td class="text-center"> <%=  leave.leave_to %> </td>
-                  <td class="text-center"> <%=  leave.leave_reason%> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
                 </tr>
               <% end %>
-            <% end %>
-          </table>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Female Engineers-------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Female Engineers </h3>
+          <div>
+            <table class="table table-primary">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% Employee.where(gender: "female").each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Male Software Engineers-------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Male Software Engineers </h3>
+          <div>
+            <table class="table table-danger">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% Employee.male.where(designation_id: 1).each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Part Time Available Employee -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Part Time Available Employee  </h3>
+          <div>
+            <table class="table table-warning">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% Employee.where(availability: "part_time").each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Employee whose age > 40 and salary > 50000 -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Employee whose age > 40 AND salary > 50000  </h3>
+          <div>
+            <table class="table table-primary">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% Employee.where("age > ? AND salary > ?", 40, 50000).each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Employee whose age is [46, 51, 55] -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Employee whose age is [46, 51, 55]  </h3>
+          <div>
+            <table class="table table-danger">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% Employee.where(age: [46, 51, 55]).each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- First 5 Employee in birthdate descending order -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> First 5 Employee - Birthdate descending order  </h3>
+          <div>
+            <table class="table table-warning">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% Employee.where('id < 6').order('birth_date desc').each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Total of grouped items -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Total of grouped items  </h3>
+          <div class="text-center">
+            Availability :  <%= Employee.group(:availability).count %> <br>
+            Gender :  <%= Employee.group(:gender).count %>
+          </div>
+        </div>
+        <%# ---------- Group and Having -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Group and Having </h3>
+          <div>
+            <table class="table table-primary">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> created_at </td>
+              </thead>
+              <% Employee.group(:age).having("salary < 50000").each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.created_at %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
         </div>
       </div>
-      <%# ---------- Employee with Salary Descending -------------------- %>
+      <%# ---------- Employee's Leave Count with Includes and Joins -------------------- %>
       <div class="border p-3 mt-4" style="background: #b6b6b626;">
-        <h3 class="mt-2 mb-3 text-center"> Employee with Salary Descending  </h3>
-        <div>
-          <table class="table table-primary">
-            <thead class="table-dark">
-              <td class="text-center"> ID </td>
-              <td class="text-center"> Full Name </td>
-              <td class="text-center"> Age </td>
-              <td class="text-center"> Gender </td>
-              <td class="text-center"> Designation </td>
-              <td class="text-center"> Joining Date </td>
-              <td class="text-center"> Birthdate </td>
-              <td class="text-center"> Salary </td>
-              <td class="text-center"> Availability </td>
-            </thead>
-            <% @salaryDesc.each do |employee| %>
-              <tr>
-                <td class="text-center"> <%=  employee.id %> </td>
-                <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
-                <td class="text-center"> <%=  employee.age %> </td>
-                <td class="text-center"> <%=  employee.gender %> </td>
-                <td class="text-center"> <%=  employee.designation.designation_name %> </td>
-                <td class="text-center"> <%=  employee.joining_date %> </td>
-                <td class="text-center"> <%=  employee.birth_date %> </td>
-                <td class="text-center"> <%=  employee.salary %> </td>
-                <td class="text-center"> <%=  employee.availability %> </td>
-              </tr>
-            <% end %>
-          </table>
-        </div>
-      </div>
-      <%# ---------- Employee with Second Highest Salary -------------------- %>
-      <div class="border p-3 mt-4" style="background: #b6b6b626;">
-        <h3 class="mt-2 mb-3 text-center"> Employee with Second Highest Salary  </h3>
+        <h3 class="mt-2 mb-3 text-center"> Employee's Leave Count  </h3>
         <div>
           <table class="table table-danger">
             <thead class="table-dark">
               <td class="text-center"> ID </td>
               <td class="text-center"> Full Name </td>
               <td class="text-center"> Designation </td>
-              <td class="text-center"> Salary </td>
+              <td class="text-center"> Total Leaves </td>
             </thead>
-            <% empSecondHighSalary = Employee.secondHighSalary %>
-            <tr>
-              <td class="text-center"> <%=  empSecondHighSalary.id %> </td>
-              <td class="text-center"> <%=  empSecondHighSalary.first_name + " " + empSecondHighSalary.last_name %> </td>
-              <td class="text-center"> <%=  empSecondHighSalary.designation.designation_name %> </td>
-              <td class="text-center"> <%=  empSecondHighSalary.salary %> </td>
-            </tr>
-          </table>
+            <% Employee.includes(:leave_plans).each do |employee| %>
+              <%# Employee.joins(:leave_plans).each do |employee| %>
+                <%# -------- includes => Showing all the data -------- %>
+                <%# -------- joins => Showing only common data -------- %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.leave_plans.count %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Employees who are on leave -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Employees who are on leave  </h3>
+          <div>
+            <table class="table table-warning">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Leave From </td>
+                <td class="text-center"> Leave To </td>
+                <td class="text-center"> Leave Reason </td>
+              </thead>
+              <% Employee.includes(:leave_plans).each do |employee| %>
+                <% employee.leave_plans.each do |leave| %>
+                  <tr>
+                    <td class="text-center"> <%=  employee.id %> </td>
+                    <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                    <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                    <td class="text-center"> <%=  leave.leave_from %> </td>
+                    <td class="text-center"> <%=  leave.leave_to %> </td>
+                    <td class="text-center"> <%=  leave.leave_reason%> </td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Employee with Salary Descending -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Employee with Salary Descending  </h3>
+          <div>
+            <table class="table table-primary">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Age </td>
+                <td class="text-center"> Gender </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Joining Date </td>
+                <td class="text-center"> Birthdate </td>
+                <td class="text-center"> Salary </td>
+                <td class="text-center"> Availability </td>
+              </thead>
+              <% @salaryDesc.each do |employee| %>
+                <tr>
+                  <td class="text-center"> <%=  employee.id %> </td>
+                  <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                  <td class="text-center"> <%=  employee.age %> </td>
+                  <td class="text-center"> <%=  employee.gender %> </td>
+                  <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                  <td class="text-center"> <%=  employee.joining_date %> </td>
+                  <td class="text-center"> <%=  employee.birth_date %> </td>
+                  <td class="text-center"> <%=  employee.salary %> </td>
+                  <td class="text-center"> <%=  employee.availability %> </td>
+                </tr>
+              <% end %>
+            </table>
+          </div>
+        </div>
+        <%# ---------- Employee with Second Highest Salary -------------------- %>
+        <div class="border p-3 mt-4" style="background: #b6b6b626;">
+          <h3 class="mt-2 mb-3 text-center"> Employee with Second Highest Salary  </h3>
+          <div>
+            <table class="table table-danger">
+              <thead class="table-dark">
+                <td class="text-center"> ID </td>
+                <td class="text-center"> Full Name </td>
+                <td class="text-center"> Designation </td>
+                <td class="text-center"> Salary </td>
+              </thead>
+              <% empSecondHighSalary = Employee.secondHighSalary %>
+              <tr>
+                <td class="text-center"> <%=  empSecondHighSalary.id %> </td>
+                <td class="text-center"> <%=  empSecondHighSalary.first_name + " " + empSecondHighSalary.last_name %> </td>
+                <td class="text-center"> <%=  empSecondHighSalary.designation.designation_name %> </td>
+                <td class="text-center"> <%=  empSecondHighSalary.salary %> </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
