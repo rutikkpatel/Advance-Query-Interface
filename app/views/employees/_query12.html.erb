@@ -1,0 +1,29 @@
+<%# ---------- Employee with Second Highest Salary -------------------- %>
+<div class="accordion mt-5 mb-2 accordion-flush border">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="query12">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#queryTweleve" aria-expanded="false" aria-controls="queryTweleve">
+        <h3> Query 12 : Employee with Second Highest Salary </h3>
+      </button>
+    </h2>
+    <div id="queryTweleve" class="accordion-collapse collapse" aria-labelledby="query12">
+      <div class="accordion-body" style="background: #b6b6b626;">
+        <table class="table table-danger">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% empSecondHighSalary = Employee.query12 %>
+          <tr>
+            <td class="text-center"> <%=  empSecondHighSalary.id %> </td>
+            <td class="text-center"> <%=  empSecondHighSalary.first_name + " " + empSecondHighSalary.last_name %> </td>
+            <td class="text-center"> <%=  empSecondHighSalary.designation.designation_name %> </td>
+            <td class="text-center"> <%=  empSecondHighSalary.salary %> </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

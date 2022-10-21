@@ -1,0 +1,41 @@
+<%# ---------- Male Software Engineers-------------------- %>
+<div class="accordion mt-5 accordion-flush border">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="query3">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#queryThree" aria-expanded="false" aria-controls="queryThree">
+        <h3> Query 3: Male Software Engineers </h3>
+      </button>
+    </h2>
+    <div id="queryThree" class="accordion-collapse collapse" aria-labelledby="query3">
+      <div class="accordion-body" style="background: #b6b6b626;">
+        <table class="table table-danger">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Age </td>
+            <td class="text-center"> Gender </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Joining Date </td>
+            <td class="text-center"> Birthdate </td>
+            <td class="text-center"> Salary </td>
+            <td class="text-center"> Availability </td>
+          </thead>
+          <% Employee.includes(:designation).query3.each do |employee| %>
+            <%#= Designation.includes(:employees).where(employees: {gender: "male"}, designation_name: "Software Engineer").pluck(:first_name) %>
+            <tr>
+              <td class="text-center"> <%=  employee.id %> </td>
+              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+              <td class="text-center"> <%=  employee.age %> </td>
+              <td class="text-center"> <%=  employee.gender %> </td>
+              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+              <td class="text-center"> <%=  employee.joining_date %> </td>
+              <td class="text-center"> <%=  employee.birth_date %> </td>
+              <td class="text-center"> <%=  employee.salary %> </td>
+              <td class="text-center"> <%=  employee.availability %> </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<%# ---------- Employee's Leave Count with Includes and Joins -------------------- %>
+<div class="accordion mt-5 accordion-flush border">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="query9">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#queryNine" aria-expanded="false" aria-controls="queryNine">
+        <h3> Query 9 : Employee's Leave Count </h3>
+      </button>
+    </h2>
+    <div id="queryNine" class="accordion-collapse collapse" aria-labelledby="query9">
+      <div class="accordion-body" style="background: #b6b6b626;">
+        <table class="table table-danger">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Total Leaves </td>
+          </thead>
+          <% Employee.includes(:leave_plans).each do |employee| %>
+          <%# Employee.joins(:leave_plans).each do |employee| %>
+            <%# -------- includes => Showing all the data -------- %>
+            <%# -------- joins => Showing only common data -------- %>
+            <tr>
+              <td class="text-center"> <%=  employee.id %> </td>
+              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+              <td class="text-center"> <%=  employee.leave_plans.count %> </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<%# ---------- Part Time Available Employee -------------------- %>
+<div class="accordion mt-5 accordion-flush border">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="query4">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#queryFour" aria-expanded="false" aria-controls="queryFour">
+        <h3> Query 4 : Part Time Available Employee </h3>
+      </button>
+    </h2>
+    <div id="queryFour" class="accordion-collapse collapse" aria-labelledby="query4">
+      <div class="accordion-body" style="background: #b6b6b626;">
+        <table class="table table-warning">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Age </td>
+            <td class="text-center"> Gender </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Joining Date </td>
+            <td class="text-center"> Birthdate </td>
+            <td class="text-center"> Salary </td>
+            <td class="text-center"> Availability </td>
+          </thead>
+          <% Employee.where(availability: "part_time").each do |employee| %>
+            <tr>
+              <td class="text-center"> <%=  employee.id %> </td>
+              <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+              <td class="text-center"> <%=  employee.age %> </td>
+              <td class="text-center"> <%=  employee.gender %> </td>
+              <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+              <td class="text-center"> <%=  employee.joining_date %> </td>
+              <td class="text-center"> <%=  employee.birth_date %> </td>
+              <td class="text-center"> <%=  employee.salary %> </td>
+              <td class="text-center"> <%=  employee.availability %> </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

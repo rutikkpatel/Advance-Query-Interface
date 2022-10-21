@@ -1,0 +1,47 @@
+<%# ---------- Total of grouped items -------------------- %>
+<div class="accordion mt-5 accordion-flush border">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="query8">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#queryEight" aria-expanded="false" aria-controls="queryEight">
+        <h3> Query : 8 Group - Having </h3>
+      </button>
+    </h2>
+    <div id="queryEight" class="accordion-collapse collapse" aria-labelledby="query8">
+      <div class="accordion-body" style="background: #b6b6b626;">
+        <h5 class="my3 text-center"> Total of grouped items  </h5>
+        <div class="text-center">
+          Availability :  <%= Employee.group(:availability).count %> <br>
+          Gender :  <%= Employee.group(:gender).count %>
+        </div>
+        <hr>
+        <%# ---------- Group and Having -------------------- %>
+        <h5 class="my-3 text-center"> Employees that have more than 1 duplicate ages - Group and Having </h5>
+        <div>
+          <table class="table table-primary">
+            <thead class="table-dark">
+              <td class="text-center"> ID </td>
+              <td class="text-center"> Full Name </td>
+              <td class="text-center"> Age </td>
+              <td class="text-center"> Gender </td>
+              <td class="text-center"> Designation </td>
+              <td class="text-center"> Salary </td>
+              <td class="text-center"> created_at </td>
+            </thead>
+            <% Employee.query8.each do |employee| %>
+              <tr>
+                <td class="text-center"> <%=  employee.id %> </td>
+                <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                <td class="text-center"> <%=  employee.age %> </td>
+                <td class="text-center"> <%=  employee.gender %> </td>
+                <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                <td class="text-center"> <%=  employee.salary %> </td>
+                <td class="text-center"> <%=  employee.created_at %> </td>
+              </tr>
+            <% end %>
+          </table>
+          <%= Employee.group(:age).having("count(age) > 1").count %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

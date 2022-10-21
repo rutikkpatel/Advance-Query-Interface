@@ -1,0 +1,36 @@
+<%# ---------- Employees who are on leave -------------------- %>
+<div class="accordion mt-5 accordion-flush border">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="query10">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#queryTen" aria-expanded="false" aria-controls="queryTen">
+        <h3> Query 10 : Employees who are on leave </h3>
+      </button>
+    </h2>
+    <div id="queryTen" class="accordion-collapse collapse" aria-labelledby="query10">
+      <div class="accordion-body" style="background: #b6b6b626;">
+        <table class="table table-warning">
+          <thead class="table-dark">
+            <td class="text-center"> ID </td>
+            <td class="text-center"> Full Name </td>
+            <td class="text-center"> Designation </td>
+            <td class="text-center"> Leave From </td>
+            <td class="text-center"> Leave To </td>
+            <td class="text-center"> Leave Reason </td>
+          </thead>
+          <% Employee.includes(:leave_plans).each do |employee| %>
+            <% employee.leave_plans.each do |leave| %>
+              <tr>
+                <td class="text-center"> <%=  employee.id %> </td>
+                <td class="text-center"> <%=  employee.first_name + " " + employee.last_name %> </td>
+                <td class="text-center"> <%=  employee.designation.designation_name %> </td>
+                <td class="text-center"> <%=  leave.leave_from %> </td>
+                <td class="text-center"> <%=  leave.leave_to %> </td>
+                <td class="text-center"> <%=  leave.leave_reason%> </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

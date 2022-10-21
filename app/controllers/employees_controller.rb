@@ -54,7 +54,6 @@ class EmployeesController < ApplicationController
 
   #  Method for displaying all queries
   def queries
-    @salaryDesc = Employee.order("salary DESC").limit(5)
   end
 
   private
